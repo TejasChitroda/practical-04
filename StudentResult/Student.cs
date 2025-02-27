@@ -1,11 +1,14 @@
 ﻿namespace StudentResult
 {
+    // Student class That contains some properties like name , marks , avrageMarks
     class Student
     {
+        // Feild of Student class
         public string name;
         public decimal[] marks = new decimal[5];
         public static decimal AverageMarks;
 
+        // EnterMarks : This Method is fo taking marks from user 
         public void EnterMarks()
         {
             Console.WriteLine("Enter Marks : ");
@@ -16,6 +19,7 @@
             }
         }
 
+        // CalculateAvrageMarks : This method is calculate average marks of every subject
         public decimal CalculateAverageMarks()
         {
             AverageMarks = marks.Average();
@@ -23,6 +27,7 @@
             return AverageMarks;
         }
 
+        // CalculateGrade : This Method is calculagte grade of student according to its average marks and return grade(string)
         public string CalculateGrade(decimal marks)
         {
             string grade;
