@@ -11,11 +11,31 @@
         // EnterMarks : This Method is fo taking marks from user 
         public void EnterMarks()
         {
+
+
             Console.WriteLine("Enter Marks : ");
             for (int i = 0; i < marks.Length; i++)
             {
-                Console.Write($"Subject {i+1} : ");
-                marks[i] = Convert.ToDecimal(Console.ReadLine());
+            MarksValidation:
+                Console.Write($"Subject {i + 1} : ");
+
+                string Marks = Console.ReadLine();
+
+                if (decimal.TryParse(Marks, out _))
+                {
+                    marks[i] = Convert.ToDecimal(Marks);
+
+                    if (marks[i] < 0 || marks[i] > 100)
+                    {
+                        Console.WriteLine("Enter Valid Marks");
+                        goto MarksValidation;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Enter Valid Marks");
+                    goto MarksValidation;
+                }
             }
         }
 
@@ -32,7 +52,7 @@
         {
             string grade;
 
-            switch(marks)
+            switch (marks)
             {
                 case > 90:
                     grade = "A";
